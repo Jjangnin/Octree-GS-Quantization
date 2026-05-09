@@ -1,0 +1,53 @@
+nohup: ignoring input
+═══ NPZ prep: restore .original if present, else back up ═══
+  backup:   outputs/mipnerf360/counter/baseline_40k_tf32off/2026-05-09_13:36:08/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+  backup:   outputs/mipnerf360/bonsai/baseline_40k_tf32off/2026-05-09_11:35:32/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+  backup:   outputs/mipnerf360/stump/baseline_40k_tf32off/2026-05-09_12:51:25/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+  backup:   outputs/mipnerf360/room/baseline_40k_tf32off/2026-05-09_13:10:35/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+  backup:   outputs/mipnerf360/kitchen/baseline_40k_tf32off/2026-05-09_14:00:52/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+  backup:   outputs/mipnerf360/garden/baseline_40k_tf32off/2026-05-09_12:26:33/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+  backup:   outputs/mipnerf360/bicycle/baseline_40k_tf32off/2026-05-09_12:03:33/point_cloud/iteration_40000/point_cloud_quantized.npz.original
+
+▶ 17:50:50 bicycle → outputs/mipnerf360/bicycle/baseline_40k_tf32off/2026-05-09_12:03:33
+  · RDO    17:50:50
+  · QAT    17:52:34
+  · Render 17:56:58
+  · Metric 18:01:29
+✓ 18:01:42 bicycle done
+▶ 18:01:42 bonsai → outputs/mipnerf360/bonsai/baseline_40k_tf32off/2026-05-09_11:35:32
+  · RDO    18:01:42
+  · QAT    18:02:41
+  · Render 18:05:39
+  · Metric 18:12:09
+✓ 18:12:25 bonsai done
+▶ 18:12:25 counter → outputs/mipnerf360/counter/baseline_40k_tf32off/2026-05-09_13:36:08
+  · RDO    18:12:25
+  · QAT    18:13:28
+  · Render 18:16:43
+  · Metric 18:22:40
+✓ 18:22:54 counter done
+▶ 18:22:54 garden → outputs/mipnerf360/garden/baseline_40k_tf32off/2026-05-09_12:26:33
+  · RDO    18:22:54
+  · QAT    18:24:40
+  · Render 18:29:04
+  · Metric 18:33:01
+✓ 18:33:14 garden done
+▶ 18:33:14 kitchen → outputs/mipnerf360/kitchen/baseline_40k_tf32off/2026-05-09_14:00:52
+  · RDO    18:33:14
+  · QAT    18:34:19
+  · Render 18:37:57
+  · Metric 18:44:16
+✓ 18:44:32 kitchen done
+▶ 18:44:32 room → outputs/mipnerf360/room/baseline_40k_tf32off/2026-05-09_13:10:35
+  · RDO    18:44:32
+  · QAT    18:45:47
+  · Render 18:49:17
+  · Metric 18:56:21
+✓ 18:56:39 room done
+▶ 18:56:39 stump → outputs/mipnerf360/stump/baseline_40k_tf32off/2026-05-09_12:51:25
+  · RDO    18:56:39
+  · QAT    18:57:43
+  · Render 19:00:51
+  · Metric 19:04:07
+✓ 19:04:17 stump done
+════ COMPRESS+QAT+METRIC ALL DONE 2026-05-09 19:04:17 ════

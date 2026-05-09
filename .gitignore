@@ -1,0 +1,19 @@
+# Excluded from backup repo (too large / external)
+outputs/
+data
+data/
+*.original
+
+# Python cache (regenerated)
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.so
+build/
+dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,14 @@
+nohup: ignoring input
+▶ 12:03:33 bicycle → outputs/mipnerf360/bicycle/baseline_40k_tf32off/2026-05-09_12:03:33
+✓ 12:26:33 bicycle done
+▶ 12:26:33 garden → outputs/mipnerf360/garden/baseline_40k_tf32off/2026-05-09_12:26:33
+✓ 12:51:25 garden done
+▶ 12:51:25 stump → outputs/mipnerf360/stump/baseline_40k_tf32off/2026-05-09_12:51:25
+✓ 13:10:35 stump done
+▶ 13:10:35 room → outputs/mipnerf360/room/baseline_40k_tf32off/2026-05-09_13:10:35
+✓ 13:36:08 room done
+▶ 13:36:08 counter → outputs/mipnerf360/counter/baseline_40k_tf32off/2026-05-09_13:36:08
+✓ 14:00:52 counter done
+▶ 14:00:52 kitchen → outputs/mipnerf360/kitchen/baseline_40k_tf32off/2026-05-09_14:00:52
+✓ 14:27:52 kitchen done
+════ ALL DONE 2026-05-09 14:27:52 ════
