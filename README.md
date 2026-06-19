@@ -136,19 +136,62 @@ output_rd_40k/
 
 ---
 
-## Results
+## Qualitative Results
+
+Multi-scale rendering quality (zoom-in / normal / zoom-out), 3DGS vs Ours:
+
+![Multi-scale rendering comparison](assets/multiscale_rendering.png)
+
+Per-scene close-up comparison (3DGS / Octree-GS / Ours PTQ / Ours PTQ+QAT):
+
+![Qualitative comparison](output_rd_40k/qualitative_room_annotated.png)
+
+---
+
+## Quantitative Results
 
 Settings: target bpf = 5, allowed bits = {2,3,4,5,6,7,8}, QAT 5000 steps (lr_scale = 0.1)
 
-> PSNR values below are after RDO quantization (before QAT fine-tuning).
+### Storage & Compression Ratio
 
-| Scene | Baseline PSNR | RDO PSNR | Drop | BPF | PLY (MB) | NPZ (MB) | Ratio |
-|---|---|---|---|---|---|---|---|
-| bicycle | 24.91 | 24.76 | 0.16 | 5.13 | 230.3 | 59.1 | 3.90× |
-| bonsai | 31.62 | 31.25 | 0.37 | 5.11 | 55.2 | 13.9 | 3.98× |
-| counter | 29.46 | 29.03 | 0.43 | 5.00 | 65.8 | 16.9 | 3.90× |
-| garden | 27.46 | 27.09 | 0.38 | 5.00 | 206.7 | 54.2 | 3.81× |
-| kitchen | 31.09 | 30.55 | 0.54 | 5.00 | 55.5 | 14.3 | 3.89× |
+CR<sub>3D</sub> = size relative to 3DGS, CR<sub>O</sub> = size relative to Octree-GS.
+
+| Scene | 3DGS (MB) | Octree-GS (MB) | Ours (MB) | CR<sub>3D</sub> (%) | CR<sub>O</sub> (%) |
+|---|---|---|---|---|---|
+| bicycle | 1155.5 | 227.82 | **57.04** | 4.94 | 25.04 |
+| bonsai | 253.7 | 54.41 | **13.66** | 5.38 | 25.11 |
+| counter | 256.7 | 66.26 | **17.00** | 6.62 | 25.66 |
+| garden | 985.2 | 207.59 | **54.48** | 5.53 | 26.24 |
+| kitchen | 376.8 | 55.36 | **14.23** | 3.78 | 25.70 |
+| room | 310.1 | 73.94 | **19.08** | 6.15 | 25.80 |
+| stump | 1030.8 | 135.70 | **35.45** | 3.44 | 26.12 |
+| **Mean** | 624.26 | 117.30 | **30.13** | 4.87% (20.55×) | 25.64% (3.90×) |
+
+### Rendering Quality (3DGS vs Ours)
+
+| Scene | PSNR (3DGS) | PSNR (Ours) | SSIM (3DGS) | SSIM (Ours) | LPIPS (3DGS) | LPIPS (Ours) |
+|---|---|---|---|---|---|---|
+| bicycle | 25.27 | 24.98 | 0.7670 | 0.7407 | 0.2080 | 0.2495 |
+| bonsai | 32.29 | 31.86 | 0.9420 | 0.9332 | 0.2030 | 0.1962 |
+| counter | 29.08 | 29.61 | 0.9090 | 0.9110 | 0.1990 | 0.1924 |
+| garden | 27.45 | 27.41 | 0.8680 | 0.8487 | 0.1060 | 0.1309 |
+| kitchen | 31.43 | 31.29 | 0.9280 | 0.9231 | 0.1260 | 0.1290 |
+| room | 31.59 | 32.54 | 0.9210 | 0.9327 | 0.2170 | 0.1816 |
+| stump | 26.59 | 26.38 | 0.7700 | 0.7552 | 0.2170 | 0.2633 |
+| **Mean** | 29.10 | 29.15 | 0.8721 | 0.8635 | 0.1823 | 0.1919 |
+
+### PSNR Ablation (Octree-GS → PTQ → QAT)
+
+| Scene | Octree-GS | PTQ | QAT |
+|---|---|---|---|
+| bicycle | 24.91 | 24.76 | **24.98** |
+| bonsai | 31.62 | 31.25 | **31.86** |
+| counter | 29.46 | 29.03 | **29.61** |
+| garden | **27.46** | 27.09 | 27.41 |
+| kitchen | 31.09 | 30.55 | **31.29** |
+| room | 32.18 | 31.97 | **32.54** |
+| stump | **26.39** | 26.18 | 26.38 |
+| **Mean** | 29.02 | 28.69 | **29.15** |
 
 ---
 
