@@ -3,6 +3,10 @@ outputs/
 data
 data/
 *.original
+output_rd_40k/qualitative_room/
+
+# Logs
+*.log
 
 # Python cache (regenerated)
 __pycache__/
