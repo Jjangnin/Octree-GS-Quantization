@@ -25,7 +25,8 @@ Key dependencies: Python 3.7.13, PyTorch 1.12.1, CUDA 11.6, pytorch-scatter.
 
 ## Dataset
 
-MipNeRF-360 (7 scenes): `bicycle`, `bonsai`, `counter`, `garden`, `kitchen`, `room`, `stump`
+**MipNeRF-360** (7 scenes) — used for the main quantitative results:
+`bicycle`, `bonsai`, `counter`, `garden`, `kitchen`, `room`, `stump`
 
 ```
 data/mipnerf360/
@@ -36,6 +37,13 @@ data/mipnerf360/
 ├── kitchen/
 ├── room/
 └── stump/
+```
+
+**BungeeNeRF** — `rome` scene (multi-scale aerial, L1–L7), used for the multi-scale rendering figure above:
+
+```
+data/bungeenerf/
+└── rome/
 ```
 
 ---
@@ -138,7 +146,8 @@ output_rd_40k/
 
 ## Qualitative Results
 
-Multi-scale rendering quality (zoom-in / normal / zoom-out), 3DGS vs Ours:
+Multi-scale rendering quality on the **BungeeNeRF `rome` scene** (Colosseum, L1–L7 multi-scale
+aerial imagery), zoom-in / normal / zoom-out, 3DGS vs Ours:
 
 ![Multi-scale rendering comparison](assets/multiscale_rendering.png)
 
@@ -165,7 +174,7 @@ CR<sub>3D</sub> = size relative to 3DGS, CR<sub>O</sub> = size relative to Octre
 | kitchen | 376.8 | 55.36 | **14.23** | 3.78 | 25.70 |
 | room | 310.1 | 73.94 | **19.08** | 6.15 | 25.80 |
 | stump | 1030.8 | 135.70 | **35.45** | 3.44 | 26.12 |
-| **Mean** | 624.26 | 117.30 | **30.13** | 4.87% (20.55×) | 25.64% (3.90×) |
+| **Mean** | 624.26 | 117.30 | **30.13** | **4.87% (20.55×)** | **25.64% (3.90×)** |
 
 ### Rendering Quality (3DGS vs Ours)
 
