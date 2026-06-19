@@ -15,6 +15,12 @@ pip install submodules/simple-knn
 
 Key dependencies: Python 3.7.13, PyTorch 1.12.1, CUDA 11.6, pytorch-scatter.
 
+> **Note on the convenience scripts.** `run_compress_qat_40k.sh`, `report_40k.sh`, and
+> `report_compressed_40k.sh` contain a hardcoded working directory (`cd /data2/MatrixCity/...`)
+> and a hardcoded interpreter path (`PY=/data3/isjang/.../bin/python`). Before running them on a
+> fresh clone, edit those two lines to match your environment, or just use the equivalent
+> `python ...` commands shown in each step below.
+
 ---
 
 ## Dataset
@@ -39,10 +45,11 @@ data/mipnerf360/
 ### 1. Baseline Training (40k iterations)
 
 ```bash
-bash train_mipnerf360.sh
+bash train_mipnerf360.sh   # launches all scenes in parallel via train.sh
 ```
 
-Or manually:
+`train_mipnerf360.sh` dispatches each scene through `train.sh` (the shared argument wrapper),
+which finally calls `train.py`. To train a single scene manually:
 
 ```bash
 python train.py --eval \
@@ -149,6 +156,10 @@ Settings: target bpf = 5, allowed bits = {2,3,4,5,6,7,8}, QAT 5000 steps (lr_sca
 
 | File | Description |
 |---|---|
+| `train_mipnerf360.sh` | Launch baseline training for all 7 scenes |
+| `train.sh` | Argument wrapper around `train.py` (used by `train_mipnerf360.sh`) |
+| `run_compress_qat_40k.sh` | Full RDO → QAT → render → metrics pipeline |
+| `report_40k.sh` / `report_compressed_40k.sh` | Aggregate metric tables |
 | `train.py` | Octree-GS baseline training |
 | `train_qat.py` | QAT fine-tuning |
 | `compress_optimal.py` | RDO / sweep-based optimal bit allocation |
