@@ -8,6 +8,7 @@ SIBR_viewers/
 
 # Logs
 *.log
+logs/
 
 # Python cache (regenerated)
 __pycache__/
