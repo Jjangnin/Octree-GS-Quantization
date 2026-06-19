@@ -6,6 +6,23 @@ data/
 output_rd_40k/qualitative_room/
 SIBR_viewers/
 
+# One-off / experiment scripts not needed for reproduction
+run_30k.sh
+run_anytime_pipeline.sh
+run_bonsai_40k.sh
+run_compress_5bpf.sh
+run_deflate_ablation.sh
+run_qat.sh
+run_qat_10k.sh
+run_remaining_40k.sh
+single_train.sh
+train.sh
+train_bungeenerf.sh
+train_db.sh
+train_matrix_city.sh
+train_remaining.sh
+train_tandt.sh
+
 # Logs
 *.log
 logs/
